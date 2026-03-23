@@ -153,7 +153,7 @@ You are free to share and adapt the data for any purpose, including commercial u
 
 ## Related Publications
 
-> Šaltanis, J., Saunoris, M., Lukočius, R., Daunoras, V., Zulonas, K., Rinaldi, S., & Nakutis, Ž. "Experimental Verification and Implementation Feasibility Analysis of Remote Smart Meter Error Monitoring System in Smart Cities." *Smart Cities*, MDPI.
+> Šaltanis, J., Saunoris, M., Lukočius, R., Daunoras, V., Zulonas, K., Rinaldi, S., & Nakutis, Ž. **" TBW "** 
 
 ---
 
