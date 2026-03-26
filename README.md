@@ -12,7 +12,7 @@
  
 This repository contains a comprehensive dataset of experimental measurement results. The experiments were conducted in a **university office building** equipped with typical office infrastructure, including personal computers, large display screens, electrical kettles, etc.
  
-Both the **sum meter** and the **consumer meter** were connected to the same single-phase branch on the same floor of the building.
+Both the **sum meter** and the **consumer meter** were connected to the same single-phase branch on the same floor of the building. Both meters are **Class I**, transmitting data via the **P1 port** at **1-second intervals**. The transmitted data package complies with the **Dutch Smart Meter Requirements DSMR 5.0**.
  
 In order to select power events more precisely, preprocessing was performed on the experimental data according to the following criteria:
  
@@ -30,6 +30,8 @@ The repository contains two types of data: **raw meter recordings** (continuous 
 ## Raw Data
  
 Raw recordings are provided as CSV files captured directly from the P1 smart meter interface at ~1 second sampling interval.
+
+---
 
 ### Raw Data Columns
  
@@ -54,12 +56,12 @@ Each row represents one meter reading. Two meters (sum and consumer) report alte
 | `instantaneous_power_factor_l1` | — | Power factor, phase L1 |
 | `instantaneous_power_factor_l2` | — | Power factor, phase L2 |
 | `instantaneous_power_factor_l3` | — | Power factor, phase L3 |
-| `instantaneous_reactive_export_power_l1` | Var | Instantaneous reactive export power, phase L1 |
-| `instantaneous_reactive_export_power_l2` | Var | Instantaneous reactive export power, phase L2 |
-| `instantaneous_reactive_export_power_l3` | Var | Instantaneous reactive export power, phase L3 |
-| `instantaneous_reactive_import_power_l1` | Var | Instantaneous reactive import power, phase L1 |
-| `instantaneous_reactive_import_power_l2` | Var | Instantaneous reactive import power, phase L2 |
-| `instantaneous_reactive_import_power_l3` | Var | Instantaneous reactive import power, phase L3 |
+| `instantaneous_reactive_export_power_l1` | Var | Instantaneous reactive export power (inductive), phase L1 |
+| `instantaneous_reactive_export_power_l2` | Var | Instantaneous reactive export power (inductive), phase L2 |
+| `instantaneous_reactive_export_power_l3` | Var | Instantaneous reactive export power (inductive), phase L3 |
+| `instantaneous_reactive_import_power_l1` | Var | Instantaneous reactive import power (capacitive), phase L1 |
+| `instantaneous_reactive_import_power_l2` | Var | Instantaneous reactive import power (capacitive), phase L2 |
+| `instantaneous_reactive_import_power_l3` | Var | Instantaneous reactive import power (capacitive), phase L3 |
 | `instantaneous_voltage_l1` | V | Instantaneous voltage, phase L1 |
 | `instantaneous_voltage_l2` | V | Instantaneous voltage, phase L2 |
 | `instantaneous_voltage_l3` | V | Instantaneous voltage, phase L3 |
@@ -67,6 +69,8 @@ Each row represents one meter reading. Two meters (sum and consumer) report alte
 | `total_harmonic_distortion_l2` | % | Total harmonic distortion, phase L2 |
 | `total_harmonic_distortion_l3` | % | Total harmonic distortion, phase L3 |
 | `valid_crc` | — | CRC validity flag (1 = valid, 0 = invalid) |
+  
+---
 
 ## Preprocessed Event Files
  
@@ -151,14 +155,14 @@ Each file contains **20 columns** with before/after snapshots of electrical quan
 
 | Column | Unit | Description |
 |--------|------|-------------|
-| `Qps1` | Var | Positive reactive power of sum meter **before** power event |
-| `Qps2` | Var | Positive reactive power of sum meter **after** power event |
-| `Qns1` | Var | Negative reactive power of sum meter **before** power event |
-| `Qns2` | Var | Negative reactive power of sum meter **after** power event |
-| `Qpc1` | Var | Positive reactive power of consumer meter **before** power event |
-| `Qpc2` | Var | Positive reactive power of consumer meter **after** power event |
-| `Qnc1` | Var | Negative reactive power of consumer meter **before** power event |
-| `Qnc2` | Var | Negative reactive power of consumer meter **after** power event |
+| `Qps1` | Var | Reactive import power (inductive), sum meter, **before** power event |
+| `Qps2` | Var | Reactive import power (inductive), sum meter, **after** power event |
+| `Qns1` | Var | Reactive export power (capacitive), sum meter, **before** power event |
+| `Qns2` | Var | Reactive export power (capacitive), sum meter, **after** power event |
+| `Qpc1` | Var | Reactive import power (inductive), consumer meter, **before** power event |
+| `Qpc2` | Var | Reactive import power (inductive), consumer meter, **after** power event |
+| `Qnc1` | Var | Reactive export power (capacitive), consumer meter, **before** power event |
+| `Qnc2` | Var | Reactive export power (capacitive), consumer meter, **after** power event |
 
 ---
 
